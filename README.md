@@ -8,6 +8,7 @@
   - [Prompt / Topic → Slides](#prompt--topic--slides)
   - [Document → Slides](#document--slides)
   - [Paper / Document → Poster](#paper--document--poster)
+  - [Slide Editing & Agentic Manipulation](#slide-editing--agentic-manipulation)
   - [Layout Generation](#layout-generation)
   - [Evaluation](#evaluation)
 - [Datasets & Benchmarks](#datasets--benchmarks)
@@ -49,6 +50,11 @@
 | [GNN Meets LLM for Document-to-Presentation Transformation with Attribution](https://arxiv.org/abs/2405.13095) | EMNLP Findings 2024 | 2024 | GNN + LLM · non-linear mapping with source attribution | [📄](https://arxiv.org/abs/2405.13095) |
 | [Enhancing Presentation Slide Generation by LLMs: A Multi-Staged Approach (DocPres)](https://arxiv.org/abs/2406.06556) | INLG 2024 | 2024 | Multi-stage LLM + VLM pipeline | [📄](https://arxiv.org/abs/2406.06556) |
 | [SlideGen: Collaborative Multimodal Agents for Scientific Slide Generation](https://arxiv.org/abs/2512.04529) | arXiv | 2025 | Multi-agent · Outliner → Mapper → Speaker → Arranger → Refiner | [📄](https://arxiv.org/abs/2512.04529) |
+| [PresentAgent: Multimodal Agent for Presentation Video Generation](https://arxiv.org/abs/2507.04036) | arXiv | 2025 | Multimodal agent · document → narrated presentation *video* (slides + synced speech); PresentEval | [📄](https://arxiv.org/abs/2507.04036) |
+| [Auto-Slides: An Interactive Multi-Agent System for Creating and Customizing Research Presentations](https://arxiv.org/abs/2509.11062) | arXiv | 2025 | Interactive multi-agent · paper → pedagogically structured multimodal slides with editing | [📄](https://arxiv.org/abs/2509.11062) [🌐](https://auto-slides.github.io/) |
+| [SlideBot: A Multi-Agent Framework for Generating Informative, Reliable, Multi-Modal Presentations](https://arxiv.org/abs/2511.09804) | EAAI 2026 | 2025 | Multi-agent · retrieval + structured planning + code-gen; grounding to reduce hallucination | [📄](https://arxiv.org/abs/2511.09804) |
+| [SlideTailor: Personalized Presentation Slide Generation for Scientific Papers](https://arxiv.org/abs/2512.20292) | AAAI 2026 | 2025 | Agentic · preference-conditioned, progressively generated editable slides; chain-of-speech | [📄](https://arxiv.org/abs/2512.20292) |
+| [Narrative-Driven Paper-to-Slide Generation via ArcDeck](https://arxiv.org/abs/2604.11969) | arXiv | 2026 | Multi-agent · discourse-tree structure modeling for narrative coherence; ArcBench | [📄](https://arxiv.org/abs/2604.11969) |
 
 ### Paper / Document → Poster
 
@@ -60,6 +66,17 @@
 | [PosterGen: Aesthetic-Aware Paper-to-Poster Generation via Multi-Agent LLMs](https://arxiv.org/abs/2508.17188) | 2025 | 2025 | Multi-agent · Parser → Layout → Stylist → Renderer | [📄](https://arxiv.org/abs/2508.17188) [💻](https://github.com/Y-Research-SBU/PosterGen) |
 | [Neural Content Extraction for Poster Generation of Scientific Papers](https://arxiv.org/abs/2112.08550) | arXiv | 2021 | Neural extraction · text + figures + tables jointly | [📄](https://arxiv.org/abs/2112.08550) |
 | [Learning to Generate Posters of Scientific Papers](https://arxiv.org/abs/1604.01219) | AAAI 2016 | 2016 | Data-driven graphical model · panel layout prediction | [📄](https://arxiv.org/abs/1604.01219) |
+| [P2P: Automated Paper-to-Poster Generation and Fine-Grained Benchmark](https://arxiv.org/abs/2505.17104) | ICLR 2026 | 2025 | LLM multi-agent · HTML-rendered posters; P2PInstruct (30k+) + P2PEval | [📄](https://arxiv.org/abs/2505.17104) [💻](https://github.com/multimodal-art-projection/P2P) |
+| [SciPostGen: Bridging the Gap between Scientific Papers and Poster Layouts](https://arxiv.org/abs/2511.22490) | arXiv | 2025 | Retrieval-augmented poster layout generation + large-scale paper→layout dataset | [📄](https://arxiv.org/abs/2511.22490) [🌐](https://omron-sinicx.github.io/paper2layout/) |
+
+### Slide Editing & Agentic Manipulation
+
+> Models and benchmarks for *editing* existing decks via natural-language instructions (rather than generating from scratch).
+
+| Paper | Venue | Year | Paradigm | Links |
+|-------|-------|------|----------|-------|
+| [Talk to Your Slides: High-Efficiency Slide Editing via Language-Driven Structured Data Manipulation](https://arxiv.org/abs/2505.11604) | ACL 2026 | 2025 | LLM agent · edits underlying structured slide data (not pixels); TSBench (379 instructions) | [📄](https://arxiv.org/abs/2505.11604) [💻](https://github.com/KyuDan1/Talk-to-Your-Slides) |
+| [PPTArena: A Benchmark for Agentic PowerPoint Editing](https://arxiv.org/abs/2512.03042) | arXiv | 2025 | Benchmark · 100 decks / 2,125 slides; dual-VLM judge; PPTPilot agent | [📄](https://arxiv.org/abs/2512.03042) [💻](https://github.com/michaelofengend/PPTArena) |
 
 ### Layout Generation
 
@@ -70,6 +87,11 @@
 | [PosterLlama: Bridging Design Ability of LM to Content-Aware Layout Generation](https://arxiv.org/abs/2404.00995) | ECCV 2024 | 2024 | LLM · elements serialized as HTML; two-stage VL training | [📄](https://arxiv.org/abs/2404.00995) |
 | [PosterLLaVa: A Unified Multi-modal Layout Generator with LLM](https://arxiv.org/abs/2406.02884) | arXiv | 2024 | Multimodal LLM · unified across design domains | [📄](https://arxiv.org/abs/2406.02884) |
 | [Relation-Aware Diffusion Model for Controllable Poster Layout Generation](https://arxiv.org/abs/2306.09086) | CIKM 2023 | 2023 | Diffusion · element-relation conditioning | [📄](https://arxiv.org/abs/2306.09086) |
+| [ReLayout: Integrating Relation Reasoning for Content-aware Layout Generation with MLLMs](https://arxiv.org/abs/2507.05568) | arXiv | 2025 | MLLM · relation chain-of-thought (region/salient/margin) + prototype rebalance sampler | [📄](https://arxiv.org/abs/2507.05568) |
+| [LLMs as Layout Designers: Enhanced Spatial Reasoning for Content-Aware Layout Generation (LaySPA)](https://arxiv.org/abs/2509.16891) | arXiv | 2025 | RL · explicit spatial reasoning with hybrid geometric/structural/visual rewards | [📄](https://arxiv.org/abs/2509.16891) |
+| [UniLayDiff: A Unified Diffusion Transformer for Content-Aware Layout Generation](https://arxiv.org/abs/2512.08897) | arXiv | 2025 | Multi-modal diffusion transformer · single model for conditional/unconditional layout | [📄](https://arxiv.org/abs/2512.08897) |
+| [iPoster: Content-Aware Layout Generation for Interactive Poster Design via Graph-Enhanced Diffusion Models](https://arxiv.org/abs/2603.29469) | CHI EA 2026 | 2026 | Graph-enhanced diffusion · user-constrained interactive poster layout | [📄](https://arxiv.org/abs/2603.29469) |
+| [AeSlides: Incentivizing Aesthetic Layout in LLM-Based Slide Generation via Verifiable Rewards](https://arxiv.org/abs/2604.22840) | arXiv | 2026 | RL (GRPO) · verifiable aesthetic rewards (aspect ratio, whitespace, collisions, balance) | [📄](https://arxiv.org/abs/2604.22840) [💻](https://github.com/ympan0508/aeslides) |
 
 ### Evaluation
 
@@ -80,6 +102,9 @@
 | [PPTEval](https://arxiv.org/abs/2501.03936) | arXiv | 2025 | Content · Design · Coherence (introduced with PPTAgent) | [📄](https://arxiv.org/abs/2501.03936) |
 | [REFLEX: Reference-Free Evaluation of Presentation Content](https://arxiv.org/abs/2505.18240) | arXiv | 2025 | Reference-free quality score + actionable feedback; RefSlides benchmark | [📄](https://arxiv.org/abs/2505.18240) |
 | [SlideAudit: Automated Evaluation of Presentation Slides](https://arxiv.org/abs/2508.03630) | UIST 2025 | 2025 | Design-flaw taxonomy; 2,400 expert-annotated slides | [📄](https://arxiv.org/abs/2508.03630) |
+| [VLM-SlideEval: Evaluating VLMs on Structured Comprehension and Perturbation Sensitivity in PPT](https://arxiv.org/abs/2510.22045) | arXiv | 2025 | Element extraction · perturbation robustness · narrative-order comprehension | [📄](https://arxiv.org/abs/2510.22045) |
+| [SlidesGen-Bench: Evaluating Slides Generation via Computational and Quantitative Metrics](https://arxiv.org/abs/2601.09487) | arXiv | 2026 | Content · Aesthetics · Editability (computational metrics + Slides-Align preferences) | [📄](https://arxiv.org/abs/2601.09487) [💻](https://github.com/YunqiaoYang/SlidesGen-Bench) |
+| [PresentBench: A Fine-Grained Rubric-Based Benchmark for Slide Generation](https://arxiv.org/abs/2603.07244) | arXiv | 2026 | Instance-specific binary checklists (238 instances, avg. 54.1 items) | [📄](https://arxiv.org/abs/2603.07244) [💻](https://github.com/PresentBench/PresentBench) |
 
 ---
 
@@ -92,6 +117,10 @@
 | [PPTC-R](https://arxiv.org/abs/2403.03788) | 2024 | PPTC + perturbations | PPTX task robustness | [📄](https://arxiv.org/abs/2403.03788) |
 | [SlideVQA](https://arxiv.org/abs/2301.04883) | 2023 | 2.6k decks / 52k images / 14.5k Qs | Slide visual question answering | [📄](https://arxiv.org/abs/2301.04883) [🗂️](https://huggingface.co/datasets/NTT-hil-insight/SlideVQA) |
 | [SciDuet](https://gem-benchmark.com/data_cards/SciDuet) | 2021 | ICML'19 + NeurIPS'18&19 + ACL pairs | Document-to-slide retrieval | [🗂️](https://gem-benchmark.com/data_cards/SciDuet) |
+| [ArcBench](https://huggingface.co/datasets/ArcDeck/ArcBench) | 2026 | 100 oral paper + slide-deck pairs (ICML/ICLR/NeurIPS/CVPR/ICCV) | Paper-to-slide generation & evaluation | [🗂️](https://huggingface.co/datasets/ArcDeck/ArcBench) [📄](https://arxiv.org/abs/2604.11969) |
+| [P2PInstruct / P2PEval](https://github.com/multimodal-art-projection/P2P) | 2025 | 30k+ instructions · 121 paper-poster eval pairs | Paper-to-poster generation & fine-grained eval | [💻](https://github.com/multimodal-art-projection/P2P) [📄](https://arxiv.org/abs/2505.17104) |
+| [PosterSum](https://huggingface.co/datasets/rohitsaxena/PosterSum) | 2025 | 16,305 poster images + abstract summaries | Scientific poster understanding / summarization | [🗂️](https://huggingface.co/datasets/rohitsaxena/PosterSum) [💻](https://github.com/saxenarohit/postersum) [📄](https://arxiv.org/abs/2502.17540) |
+| [TSBench](https://github.com/KyuDan1/Talk-to-Your-Slides) | 2025 | 379 human-verified edit instructions | Instruction-based slide editing | [💻](https://github.com/KyuDan1/Talk-to-Your-Slides) [📄](https://arxiv.org/abs/2505.11604) |
 
 ---
 
@@ -105,6 +134,10 @@
 | [PPTAgent](https://github.com/icip-cas/PPTAgent) | Topic + reference deck | PPTX | Agentic, edit-based generation (ICIP-CAS) | [💻](https://github.com/icip-cas/PPTAgent) |
 | [AutoPresent](https://github.com/para-lost/AutoPresent) | Text instruction | HTML / slides | Code-gen model + SlidesBench benchmark | [💻](https://github.com/para-lost/AutoPresent) |
 | [Powerpointer-For-Local-LLMs](https://github.com/CyberTimon/Powerpointer-For-Local-LLMs) | Text prompt | PPTX | Local OpenAI-compatible LLM + python-pptx | [💻](https://github.com/CyberTimon/Powerpointer-For-Local-LLMs) |
+| [ALLWEONE Presentation AI](https://github.com/allweonedev/presentation-ai) | Prompt + preferences | Editable deck · PPTX | Open-source Gamma alternative for themed AI presentations | [💻](https://github.com/allweonedev/presentation-ai) |
+| [Paper2Poster](https://github.com/Paper2Poster/Paper2Poster) | Paper PDF | PPTX poster | NeurIPS 2025 multi-agent paper-to-poster automation | [💻](https://github.com/Paper2Poster/Paper2Poster) [🌐](https://paper2poster.github.io/) |
+| [PosterGen](https://github.com/Y-Research-SBU/PosterGen) | Paper PDF + logos | PNG · PPTX poster | Aesthetic-aware multi-agent (LangGraph) paper-to-poster | [💻](https://github.com/Y-Research-SBU/PosterGen) |
+| [SlideDeck AI](https://github.com/barun-saha/slide-deck-ai) | Topic / PDF | PPTX | Multi-provider (Gemini/OpenAI/Azure/Anthropic) deck co-creation, with offline Ollama mode | [💻](https://github.com/barun-saha/slide-deck-ai) |
 
 ### Slide Authoring Frameworks
 
@@ -148,6 +181,10 @@
 | [Pitch](https://pitch.com) | Prompt · template | PDF · PPTX | Team collaboration + analytics |
 | [Chronicle](https://chroniclehq.com) | Prompt · block editor | PDF | Interactive story blocks |
 | [AiPPT](https://www.aippt.com) | Prompt | PPTX · PDF | One-click generation; 200+ templates |
+| [Genspark AI Slides](https://www.genspark.ai) | Prompt · topic | Export-ready deck | Agentic "Super Agent" handles research, writing, and design end-to-end (2025) |
+| [Skywork AI Slides](https://skywork.ai) | Prompt + data/branding | PPTX · Google Slides | Agentic deck builder with data viz and cited, research-backed content (2025) |
+| [Manus Slides](https://manus.im) | Prompt · research goal | PPTX | Slide module of the Manus general AI agent; decks from deep research (2025) |
+| [Alai](https://getalai.com) | Content · PDF · PPT | Designed deck | YC-backed, control-focused maker with per-slide layout variations (2025) |
 
 ### Plug-in / Add-on Tools
 
