@@ -1,144 +1,202 @@
 # Awesome Presentation Generation [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> A curated list of awesome resources for **automatic presentation, slide, and poster generation** — papers, datasets, benchmarks, tools, and products that turn ideas, documents, and data into beautiful decks.
-
-Presentation generation sits at the intersection of large language models, multimodal understanding, document summarization, and layout design. This list tracks the fast-moving research literature alongside the open-source tooling and commercial products that make AI-powered deck creation real.
-
-Contributions are very welcome! Please read the [contribution guidelines](CONTRIBUTING.md) before opening a pull request.
+> A curated list of resources for **automatic presentation, slide, and poster generation** — organized by generation paradigm.
 
 ## Contents
 
-- [Surveys & Overviews](#surveys--overviews)
 - [Papers](#papers)
-  - [LLM & Agent-Based Slide Generation](#llm--agent-based-slide-generation)
-  - [Document-to-Slides](#document-to-slides)
-  - [Scientific Paper-to-Slides & Poster Generation](#scientific-paper-to-slides--poster-generation)
+  - [Prompt / Topic → Slides](#prompt--topic--slides)
+  - [Document → Slides](#document--slides)
+  - [Paper / Document → Poster](#paper--document--poster)
   - [Layout Generation](#layout-generation)
   - [Evaluation](#evaluation)
 - [Datasets & Benchmarks](#datasets--benchmarks)
 - [Open-Source Projects](#open-source-projects)
-  - [AI / LLM Slide Generators](#ai--llm-slide-generators)
-  - [Slide Frameworks & Authoring](#slide-frameworks--authoring)
+  - [AI Slide & Poster Generators](#ai-slide--poster-generators)
+  - [Slide Authoring Frameworks](#slide-authoring-frameworks)
   - [Programmatic Deck Libraries](#programmatic-deck-libraries)
 - [Commercial Products](#commercial-products)
+  - [General-Purpose AI Generators](#general-purpose-ai-generators)
+  - [Plug-in / Add-on Tools](#plug-in--add-on-tools)
+  - [Document & File Input](#document--file-input)
+  - [Chinese-Market Products](#chinese-market-products)
 - [Related Awesome Lists](#related-awesome-lists)
-- [Contributing](#contributing)
-- [License](#license)
-
-Legend: 📄 paper · 💻 code · 🗂️ dataset · 🌐 project page
 
 ---
 
-## Surveys & Overviews
-
-There is not yet a dedicated peer-reviewed survey focused solely on presentation generation. The closest entry points are the benchmark/framework papers that broadly review the field — **[PPTAgent](https://arxiv.org/abs/2501.03936)** (task formulation and evaluation) and **[AutoPresent](https://arxiv.org/abs/2501.00912)** (problem taxonomy and the SlidesBench benchmark) are the best starting points. *Contributions of a true survey paper are especially welcome.*
-
 ## Papers
 
-### LLM & Agent-Based Slide Generation
+### Prompt / Topic → Slides
 
-- **PPTAgent: Generating and Evaluating Presentations Beyond Text-to-Slides** (2025) — A two-stage, edit-based agentic framework that analyzes a reference deck, then iteratively generates editing actions; introduces the PPTEval framework (Content / Design / Coherence). [📄](https://arxiv.org/abs/2501.03936) [💻](https://github.com/icip-cas/PPTAgent)
-- **AutoPresent: Designing Structured Visuals from Scratch** (CVPR 2025) — An 8B Llama-based model trained on 7k instruction–code pairs that generates slides programmatically; introduces the SlidesBench benchmark. [📄](https://arxiv.org/abs/2501.00912) [💻](https://github.com/para-lost/AutoPresent)
-- **Textual-to-Visual Iterative Self-Verification for Slide Generation** (2025) — Decomposes slide generation into content and layout, with an LLM Reviewer + Refiner self-verification loop that renders textual layouts to visual form for review. [📄](https://arxiv.org/abs/2502.15412)
-- **PASS: Presentation Automation for Slide Generation and Speech** (2025) — A modular pipeline automating both slide generation and AI voiceover delivery from a document. [📄](https://arxiv.org/abs/2501.06497)
-- **EvoPresent: Self-Improvement Aesthetic Agents for Academic Presentations** (2025) — A self-improvement agent framework unifying narrative, aesthetic design, and virtual-character delivery; introduces PresAesth, a multi-task RL aesthetic model. [📄](https://arxiv.org/abs/2510.05571) [💻](https://github.com/eric-ai-lab/EvoPresent)
-- **SlideGen: Collaborative Multimodal Agents for Scientific Slide Generation** (2025) — A visual-in-the-loop multi-agent framework (Outliner, Mapper, Speaker, Arranger, Refiner) that turns papers into editable PPTX. [📄](https://arxiv.org/abs/2512.04529)
+> The model receives a short text prompt or topic and generates a complete slide deck.
 
-### Document-to-Slides
+| Paper | Venue | Year | Paradigm | Links |
+|-------|-------|------|----------|-------|
+| [PPTAgent: Generating and Evaluating Presentations Beyond Text-to-Slides](https://arxiv.org/abs/2501.03936) | arXiv | 2025 | Agentic edit-based (analyze reference deck → iterative edits) | [📄](https://arxiv.org/abs/2501.03936) [💻](https://github.com/icip-cas/PPTAgent) |
+| [AutoPresent: Designing Structured Visuals from Scratch](https://arxiv.org/abs/2501.00912) | CVPR 2025 | 2025 | Code generation (8B Llama → rendering code) | [📄](https://arxiv.org/abs/2501.00912) [💻](https://github.com/para-lost/AutoPresent) |
+| [Textual-to-Visual Iterative Self-Verification for Slide Generation](https://arxiv.org/abs/2502.15412) | arXiv | 2025 | LLM pipeline · Reviewer–Refiner self-verification loop | [📄](https://arxiv.org/abs/2502.15412) |
+| [EvoPresent: Self-Improvement Aesthetic Agents for Academic Presentations](https://arxiv.org/abs/2510.05571) | ICLR 2026 | 2025 | Agentic · multi-task RL aesthetic model (PresAesth) | [📄](https://arxiv.org/abs/2510.05571) [💻](https://github.com/eric-ai-lab/EvoPresent) |
+| [PASS: Presentation Automation for Slide Generation and Speech](https://arxiv.org/abs/2501.06497) | arXiv | 2025 | LLM pipeline · slides + AI voiceover | [📄](https://arxiv.org/abs/2501.06497) |
 
-- **DOC2PPT: Automatic Presentation Slides Generation from Scientific Documents** (AAAI 2022) — Seminal work: hierarchical seq2seq with summarization, retrieval, and layout prediction; released a ~6K paired document–slide dataset. [📄](https://arxiv.org/abs/2101.11796)
-- **D2S: Document-to-Slide Generation via Query-Based Text Summarization** (NAACL 2021) — Title-driven retrieval plus BART long-form QA summarization; introduces the SciDuet dataset. [📄](https://arxiv.org/abs/2105.03664) [🗂️](https://gem-benchmark.com/data_cards/SciDuet)
-- **Presentations Are Not Always Linear! GNN Meets LLM for Document-to-Presentation Transformation with Attribution** (EMNLP Findings 2024) — Combines a GNN and an LLM to capture non-linear content-to-slide mapping with source attribution. [📄](https://arxiv.org/abs/2405.13095)
-- **Enhancing Presentation Slide Generation by LLMs with a Multi-Staged End-to-End Approach (DocPres)** (INLG 2024) — A multi-stage LLM + VLM pipeline that splits long multimodal documents into shorter sub-tasks. [📄](https://arxiv.org/abs/2406.06556)
+### Document → Slides
 
-### Scientific Paper-to-Slides & Poster Generation
+> The model ingests a long document (report, paper, PDF) and converts it into structured slides.
 
-- **Paper2Poster: Towards Multimodal Poster Automation from Scientific Papers** (NeurIPS 2025 D&B) — Introduces the first poster-generation benchmark and metric suite (Visual Quality, Textual Coherence, PaperQuiz) plus PosterAgent, a top-down multi-agent pipeline. [📄](https://arxiv.org/abs/2505.21497) [💻](https://github.com/Paper2Poster/Paper2Poster) [🌐](https://paper2poster.github.io/)
-- **PosterGen: Aesthetic-Aware Paper-to-Poster Generation via Multi-Agent LLMs** (2025) — A four-agent design workflow (Parser/Curator, Layout, Stylist, Renderer) with a VLM-based design rubric. [📄](https://arxiv.org/abs/2508.17188) [💻](https://github.com/Y-Research-SBU/PosterGen)
-- **Neural Content Extraction for Poster Generation of Scientific Papers** (2021) — Treats poster generation as document summarization; a neural extractive model jointly extracts text, figures, and tables. [📄](https://arxiv.org/abs/2112.08550)
-- **Learning to Generate Posters of Scientific Papers** (AAAI 2016) — Seminal data-driven graphical-model framework for poster panel layout; released a labeled Poster–Paper dataset. [📄](https://arxiv.org/abs/1604.01219)
+| Paper | Venue | Year | Paradigm | Links |
+|-------|-------|------|----------|-------|
+| [DOC2PPT: Automatic Presentation Slides Generation from Scientific Documents](https://arxiv.org/abs/2101.11796) | AAAI 2022 | 2021 | Hierarchical Seq2Seq · summarization + retrieval + layout | [📄](https://arxiv.org/abs/2101.11796) |
+| [D2S: Document-to-Slide Generation via Query-Based Text Summarization](https://arxiv.org/abs/2105.03664) | NAACL 2021 | 2021 | Retrieval + BART summarization (introduces SciDuet) | [📄](https://arxiv.org/abs/2105.03664) [🗂️](https://gem-benchmark.com/data_cards/SciDuet) |
+| [GNN Meets LLM for Document-to-Presentation Transformation with Attribution](https://arxiv.org/abs/2405.13095) | EMNLP Findings 2024 | 2024 | GNN + LLM · non-linear mapping with source attribution | [📄](https://arxiv.org/abs/2405.13095) |
+| [Enhancing Presentation Slide Generation by LLMs: A Multi-Staged Approach (DocPres)](https://arxiv.org/abs/2406.06556) | INLG 2024 | 2024 | Multi-stage LLM + VLM pipeline | [📄](https://arxiv.org/abs/2406.06556) |
+| [SlideGen: Collaborative Multimodal Agents for Scientific Slide Generation](https://arxiv.org/abs/2512.04529) | arXiv | 2025 | Multi-agent · Outliner → Mapper → Speaker → Arranger → Refiner | [📄](https://arxiv.org/abs/2512.04529) |
+
+### Paper / Document → Poster
+
+> Scientific paper or document as input; the output is a formatted research poster.
+
+| Paper | Venue | Year | Paradigm | Links |
+|-------|-------|------|----------|-------|
+| [Paper2Poster: Towards Multimodal Poster Automation from Scientific Papers](https://arxiv.org/abs/2505.21497) | NeurIPS 2025 D&B | 2025 | Multi-agent (top-down PosterAgent) · first poster benchmark | [📄](https://arxiv.org/abs/2505.21497) [💻](https://github.com/Paper2Poster/Paper2Poster) [🌐](https://paper2poster.github.io/) |
+| [PosterGen: Aesthetic-Aware Paper-to-Poster Generation via Multi-Agent LLMs](https://arxiv.org/abs/2508.17188) | 2025 | 2025 | Multi-agent · Parser → Layout → Stylist → Renderer | [📄](https://arxiv.org/abs/2508.17188) [💻](https://github.com/Y-Research-SBU/PosterGen) |
+| [Neural Content Extraction for Poster Generation of Scientific Papers](https://arxiv.org/abs/2112.08550) | arXiv | 2021 | Neural extraction · text + figures + tables jointly | [📄](https://arxiv.org/abs/2112.08550) |
+| [Learning to Generate Posters of Scientific Papers](https://arxiv.org/abs/1604.01219) | AAAI 2016 | 2016 | Data-driven graphical model · panel layout prediction | [📄](https://arxiv.org/abs/1604.01219) |
 
 ### Layout Generation
 
-- **PosterLlama: Bridging Design Ability of Language Model to Content-Aware Layout Generation** (ECCV 2024) — Reformats layout elements as HTML to leverage LLM design knowledge via two-stage vision-language training. [📄](https://arxiv.org/abs/2404.00995)
-- **PosterLLaVa: Constructing a Unified Multi-modal Layout Generator with LLM** (2024) — A unified multimodal LLM-based layout generator spanning multiple design domains. [📄](https://arxiv.org/abs/2406.02884)
-- **Relation-Aware Diffusion Model for Controllable Poster Layout Generation** (CIKM 2023) — A diffusion-based model incorporating element relations for controllable poster layouts. [📄](https://arxiv.org/abs/2306.09086)
+> Models focused on placing and sizing elements (text boxes, images, charts) on a slide or poster canvas.
+
+| Paper | Venue | Year | Paradigm | Links |
+|-------|-------|------|----------|-------|
+| [PosterLlama: Bridging Design Ability of LM to Content-Aware Layout Generation](https://arxiv.org/abs/2404.00995) | ECCV 2024 | 2024 | LLM · elements serialized as HTML; two-stage VL training | [📄](https://arxiv.org/abs/2404.00995) |
+| [PosterLLaVa: A Unified Multi-modal Layout Generator with LLM](https://arxiv.org/abs/2406.02884) | arXiv | 2024 | Multimodal LLM · unified across design domains | [📄](https://arxiv.org/abs/2406.02884) |
+| [Relation-Aware Diffusion Model for Controllable Poster Layout Generation](https://arxiv.org/abs/2306.09086) | CIKM 2023 | 2023 | Diffusion · element-relation conditioning | [📄](https://arxiv.org/abs/2306.09086) |
 
 ### Evaluation
 
-- **PPTEval** (2025) — Multi-dimensional evaluation of generated presentations across Content, Design, and Coherence; introduced with PPTAgent. [📄](https://arxiv.org/abs/2501.03936)
-- **REFLEX: A Reference-Free Framework to Evaluate Presentation Content with Actionable Feedback** (2025) — Reference-free metrics plus the RefSlides benchmark; fine-tunes LLMs on perturbed negative samples to produce scores and feedback. [📄](https://arxiv.org/abs/2505.18240)
-- **SlideAudit: A Dataset and Taxonomy for Automated Evaluation of Presentation Slides** (UIST 2025) — An expert-derived taxonomy of slide design flaws plus 2,400 annotated slides; benchmarks LLMs at flaw detection. [📄](https://arxiv.org/abs/2508.03630)
+> Frameworks and benchmarks designed to assess quality of generated presentations.
+
+| Paper | Venue | Year | What it Measures | Links |
+|-------|-------|------|-----------------|-------|
+| [PPTEval](https://arxiv.org/abs/2501.03936) | arXiv | 2025 | Content · Design · Coherence (introduced with PPTAgent) | [📄](https://arxiv.org/abs/2501.03936) |
+| [REFLEX: Reference-Free Evaluation of Presentation Content](https://arxiv.org/abs/2505.18240) | arXiv | 2025 | Reference-free quality score + actionable feedback; RefSlides benchmark | [📄](https://arxiv.org/abs/2505.18240) |
+| [SlideAudit: Automated Evaluation of Presentation Slides](https://arxiv.org/abs/2508.03630) | UIST 2025 | 2025 | Design-flaw taxonomy; 2,400 expert-annotated slides | [📄](https://arxiv.org/abs/2508.03630) |
+
+---
 
 ## Datasets & Benchmarks
 
-- **SlidesBench** — The first slide-generation benchmark: 7k training and 585 test examples across 10 domains (from AutoPresent). [💻](https://github.com/para-lost/AutoPresent)
-- **PPTC: Evaluating LLMs for PowerPoint Task Completion** (ACL Findings 2024) — 279 multi-turn sessions for creating/editing PPTX, with a PPTX-Match evaluation system. [📄](https://arxiv.org/abs/2311.01767) [💻](https://github.com/gydpku/PPTC)
-- **PPTC-R: Evaluating the Robustness of LLMs for PowerPoint Task Completion** (2024) — A robustness variant of PPTC across instruction perturbations and software versions. [📄](https://arxiv.org/abs/2403.03788)
-- **SlideVQA: Document Visual Question Answering on Multiple Images** (AAAI 2023) — 2.6k+ slide decks / 52k+ images / 14.5k questions requiring single-hop, multi-hop, and numerical reasoning. [📄](https://arxiv.org/abs/2301.04883) [🗂️](https://huggingface.co/datasets/NTT-hil-insight/SlideVQA)
-- **SciDuet** — Paper–slide pairs scraped from ICML'19, NeurIPS'18&19, and ACL; introduced with D2S. [🗂️](https://gem-benchmark.com/data_cards/SciDuet)
+| Dataset | Year | Size | Task | Links |
+|---------|------|------|------|-------|
+| [SlidesBench](https://github.com/para-lost/AutoPresent) | 2025 | 7k train / 585 test · 10 domains | Slide generation | [💻](https://github.com/para-lost/AutoPresent) |
+| [PPTC](https://arxiv.org/abs/2311.01767) | 2023 | 279 multi-turn sessions | PPTX task completion (create / edit) | [📄](https://arxiv.org/abs/2311.01767) [💻](https://github.com/gydpku/PPTC) |
+| [PPTC-R](https://arxiv.org/abs/2403.03788) | 2024 | PPTC + perturbations | PPTX task robustness | [📄](https://arxiv.org/abs/2403.03788) |
+| [SlideVQA](https://arxiv.org/abs/2301.04883) | 2023 | 2.6k decks / 52k images / 14.5k Qs | Slide visual question answering | [📄](https://arxiv.org/abs/2301.04883) [🗂️](https://huggingface.co/datasets/NTT-hil-insight/SlideVQA) |
+| [SciDuet](https://gem-benchmark.com/data_cards/SciDuet) | 2021 | ICML'19 + NeurIPS'18&19 + ACL pairs | Document-to-slide retrieval | [🗂️](https://gem-benchmark.com/data_cards/SciDuet) |
+
+---
 
 ## Open-Source Projects
 
-### AI / LLM Slide Generators
+### AI Slide & Poster Generators
 
-- **[Presenton](https://github.com/presenton/presenton)** — Open-source, locally-runnable AI presentation generator with an API; exports PPTX/PDF (a Gamma / Beautiful.ai alternative).
-- **[PPTAgent](https://github.com/icip-cas/PPTAgent)** — The reference implementation of the agentic, edit-based reflective PowerPoint generation framework.
-- **[AutoPresent](https://github.com/para-lost/AutoPresent)** — Model, training data, and the SlidesBench benchmark for generating slides as code.
-- **[Powerpointer-For-Local-LLMs](https://github.com/CyberTimon/Powerpointer-For-Local-LLMs)** — Generates PPTX using local, OpenAI-compatible LLMs plus python-pptx.
+| Project | Input | Output | Description | Links |
+|---------|-------|--------|-------------|-------|
+| [Presenton](https://github.com/presenton/presenton) | Text prompt / doc | PPTX · PDF | Self-hostable AI generator with REST API | [💻](https://github.com/presenton/presenton) |
+| [PPTAgent](https://github.com/icip-cas/PPTAgent) | Topic + reference deck | PPTX | Agentic, edit-based generation (ICIP-CAS) | [💻](https://github.com/icip-cas/PPTAgent) |
+| [AutoPresent](https://github.com/para-lost/AutoPresent) | Text instruction | HTML / slides | Code-gen model + SlidesBench benchmark | [💻](https://github.com/para-lost/AutoPresent) |
+| [Powerpointer-For-Local-LLMs](https://github.com/CyberTimon/Powerpointer-For-Local-LLMs) | Text prompt | PPTX | Local OpenAI-compatible LLM + python-pptx | [💻](https://github.com/CyberTimon/Powerpointer-For-Local-LLMs) |
 
-### Slide Frameworks & Authoring
+### Slide Authoring Frameworks
 
-- **[reveal.js](https://github.com/hakimel/reveal.js)** — The de-facto HTML presentation framework, with Markdown support.
-- **[Slidev](https://github.com/slidevjs/slidev)** — Developer-focused, Vue-based slides written in extended Markdown.
-- **[Marp](https://github.com/marp-team/marp-cli)** / **[Marpit](https://github.com/marp-team/marpit)** — Markdown presentation ecosystem; exports HTML/PDF/PPTX.
-- **[Quarto](https://github.com/quarto-dev/quarto-cli)** — Scientific publishing system; renders reveal.js / Beamer / PPTX from Markdown plus code.
-- **[Spectacle](https://github.com/FormidableLabs/spectacle)** — A React-based presentation library.
-- **[remark](https://github.com/gnab/remark)** — A simple, in-browser, Markdown-driven slideshow tool.
-- **[reveal-md](https://github.com/webpro/reveal-md)** — Run reveal.js presentations straight from Markdown files.
+> Markdown / code → presentation (no AI generation; used as rendering backends by AI tools).
+
+| Project | Language / Stack | Output Formats | Description | Links |
+|---------|-----------------|---------------|-------------|-------|
+| [reveal.js](https://github.com/hakimel/reveal.js) | HTML / JS | HTML · PDF | De-facto HTML presentation framework | [💻](https://github.com/hakimel/reveal.js) |
+| [Slidev](https://github.com/slidevjs/slidev) | Vue / Markdown | HTML · PDF · PPTX | Developer-focused slides from extended Markdown | [💻](https://github.com/slidevjs/slidev) |
+| [Marp](https://github.com/marp-team/marp-cli) | Markdown | HTML · PDF · PPTX | Markdown presentation ecosystem | [💻](https://github.com/marp-team/marp-cli) |
+| [Quarto](https://github.com/quarto-dev/quarto-cli) | Markdown + code | reveal.js · Beamer · PPTX | Scientific publishing system | [💻](https://github.com/quarto-dev/quarto-cli) |
+| [Spectacle](https://github.com/FormidableLabs/spectacle) | React / JSX | HTML | React-based presentation library | [💻](https://github.com/FormidableLabs/spectacle) |
+| [remark](https://github.com/gnab/remark) | Markdown | HTML | In-browser Markdown-driven slides | [💻](https://github.com/gnab/remark) |
+| [reveal-md](https://github.com/webpro/reveal-md) | Markdown | HTML · PDF | Run reveal.js from plain Markdown files | [💻](https://github.com/webpro/reveal-md) |
 
 ### Programmatic Deck Libraries
 
-- **[python-pptx](https://github.com/scanny/python-pptx)** — Python library to create, read, and update PPTX files. The backbone of most LLM slide generators.
-- **[PptxGenJS](https://github.com/gitbrent/PptxGenJS)** — Build PowerPoint PPTX in JavaScript (Node, React, browser).
-- **[Apache POI](https://github.com/apache/poi)** — Java library for Microsoft Office formats including PPTX (HSLF/XSLF).
-- **[Pandoc](https://github.com/jgm/pandoc)** — Universal document converter; outputs reveal.js, Beamer, PPTX, and more.
+> Libraries for reading and writing PPTX/ODP files in code — the backbone of most LLM generators.
+
+| Library | Language | Description | Links |
+|---------|----------|-------------|-------|
+| [python-pptx](https://github.com/scanny/python-pptx) | Python | Create, read, and update PPTX files | [💻](https://github.com/scanny/python-pptx) |
+| [PptxGenJS](https://github.com/gitbrent/PptxGenJS) | JavaScript | Build PPTX in Node, React, or browser | [💻](https://github.com/gitbrent/PptxGenJS) |
+| [Apache POI](https://github.com/apache/poi) | Java | MS Office formats including PPTX (HSLF / XSLF) | [💻](https://github.com/apache/poi) |
+| [Pandoc](https://github.com/jgm/pandoc) | Haskell / CLI | Universal converter → reveal.js, Beamer, PPTX | [💻](https://github.com/jgm/pandoc) |
+
+---
 
 ## Commercial Products
 
-| Product | Description |
-| --- | --- |
-| [Gamma](https://gamma.app) | Market-leading text-to-deck AI; generates full decks from a prompt in seconds. |
-| [Microsoft 365 Copilot](https://www.microsoft.com/microsoft-365/copilot) | AI slide designer built into PowerPoint; generates decks from prompts and documents. |
-| [Canva Magic Design](https://www.canva.com/magic-design/) | Turns a short prompt into polished deck themes inside Canva's editor. |
-| [Beautiful.ai](https://www.beautiful.ai) | AI presentation maker with smart templates and auto-layout; enterprise-ready. |
-| [Plus AI](https://plusai.com) | AI add-on with native Google Slides / PowerPoint integration. |
-| [SlidesAI](https://www.slidesai.io) | Text-to-slides add-on, best for Google Slides users. |
-| [MagicSlides](https://www.magicslides.app) | AI PPT maker from URLs, PDFs, and YouTube in 100+ languages. |
-| [Decktopus](https://www.decktopus.com) | Budget AI deck generator with templates and PPTX export. |
-| [Presentations.ai](https://www.presentations.ai) | Design-centric AI deck platform with PPTX export. |
-| [Pitch](https://pitch.com) | Collaborative presentation platform with AI assistance. |
-| [Chronicle](https://chroniclehq.com) | AI-native presentation/storytelling tool with interactive blocks. |
-| [Napkin AI](https://www.napkin.ai) | Turns text into editable diagrams and visuals for slides. |
-| [Tongyi 通义](https://tongyi.aliyun.com) | Alibaba's LLM with one-sentence / document / audio-to-PPT agents. |
-| [iFlytek Zhiwen 讯飞智文](https://zhiwen.xfyun.cn) | Spark-based AI PPT / Word / mind-map generator with speech-script export. |
-| [Mindshow](https://www.mindshow.fun) | LLM-backed outline-to-slides tool. |
-| [AiPPT](https://www.aippt.com) | One-click AI PowerPoint / Google Slides generator. |
+### General-Purpose AI Generators
 
-> Note: [Tome](https://tome.app) was an influential AI deck tool but **discontinued its AI slide generation in April 2025** and pivoted to a sales platform; it is listed here for historical reference.
+> Create slides from a text prompt or outline; no source document required.
+
+| Product | Input | Export | Notable Feature |
+|---------|-------|--------|----------------|
+| [Gamma](https://gamma.app) | Prompt · outline | PDF · PPT · web | Largest user base (70M+); one-click regeneration |
+| [Beautiful.ai](https://www.beautiful.ai) | Prompt · outline | PPTX · PDF | Smart slide templates with auto-layout |
+| [Decktopus](https://www.decktopus.com) | Prompt | PPTX · PDF | Built-in form & voiceover features |
+| [Presentations.ai](https://www.presentations.ai) | Prompt | PPTX | Design-first; brand kit support |
+| [Pitch](https://pitch.com) | Prompt · template | PDF · PPTX | Team collaboration + analytics |
+| [Chronicle](https://chroniclehq.com) | Prompt · block editor | PDF | Interactive story blocks |
+| [AiPPT](https://www.aippt.com) | Prompt | PPTX · PDF | One-click generation; 200+ templates |
+
+### Plug-in / Add-on Tools
+
+> Work inside existing editors (PowerPoint, Google Slides) rather than replacing them.
+
+| Product | Platform | Notable Feature |
+|---------|----------|----------------|
+| [Microsoft 365 Copilot](https://www.microsoft.com/microsoft-365/copilot) | PowerPoint (native) | Generates decks from Word docs, prompts, or meeting notes |
+| [Canva Magic Design](https://www.canva.com/magic-design/) | Canva | Prompt → branded deck; integrated asset library |
+| [Plus AI](https://plusai.com) | Google Slides · PowerPoint | Edits existing decks; brand style learning |
+| [SlidesAI](https://www.slidesai.io) | Google Slides | Text-to-slides add-on; script import |
+| [MagicSlides](https://www.magicslides.app) | Google Slides · PowerPoint | Input: URL, PDF, YouTube, text; 100+ languages |
+
+### Document & File Input
+
+> Products that accept a document, PDF, or URL as the primary source.
+
+| Product | Input Types | Notable Feature |
+|---------|------------|----------------|
+| [Napkin AI](https://www.napkin.ai) | Text / notes | Converts text into diagrams and infographics for slides |
+| [Slidebean](https://slidebean.com) | Outline · template | Startup-focused; pitch deck financial model builder |
+
+### Chinese-Market Products
+
+| Product | Company | Input | Notable Feature |
+|---------|---------|-------|----------------|
+| [通义 (Tongyi)](https://tongyi.aliyun.com) | Alibaba | Prompt · doc · audio | One-sentence / document / voice → PPT |
+| [讯飞智文 (Zhiwen)](https://zhiwen.xfyun.cn) | iFlytek | Prompt · doc | PPTX + Word + mind map; speech-script export |
+| [Kimi](https://kimi.moonshot.cn) | Moonshot AI | Prompt · doc | AiPPT agent integration |
+| [Mindshow](https://www.mindshow.fun) | Mindshow | Outline | Outline → slides; GPT-backed |
+
+> ⚠️ [Tome](https://tome.app) discontinued AI slide generation in April 2025 and pivoted to a sales platform.
+
+---
 
 ## Related Awesome Lists
 
-- [awesome-llm](https://github.com/Hannibal046/Awesome-LLM) — Large language models, the foundation of modern presentation generation.
-- [awesome-document-understanding](https://github.com/tstanislawek/awesome-document-understanding) — Document AI, closely related to document-to-slides.
-- [awesome-multimodal-large-language-models](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models) — Multimodal LLMs used for slide and layout understanding.
+| List | Description |
+|------|-------------|
+| [awesome-llm](https://github.com/Hannibal046/Awesome-LLM) | Large language models — the foundation of modern slide generation |
+| [awesome-document-understanding](https://github.com/tstanislawek/awesome-document-understanding) | Document AI, closely related to document-to-slides |
+| [awesome-multimodal-large-language-models](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models) | Multimodal LLMs used in slide and layout understanding |
+
+---
 
 ## Contributing
 
-Contributions of any size are welcome — a new paper, a fixed link, a better description. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for the guidelines and quality bar.
+See [CONTRIBUTING.md](CONTRIBUTING.md). PRs for new papers, tools, or fixes are welcome.
 
 ## License
 
 [![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](LICENSE)
-
-To the extent possible under law, the contributors have waived all copyright and related or neighboring rights to this work. See [LICENSE](LICENSE).
