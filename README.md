@@ -38,6 +38,8 @@
 | [Textual-to-Visual Iterative Self-Verification for Slide Generation](https://arxiv.org/abs/2502.15412) | arXiv | 2025 | LLM pipeline · Reviewer–Refiner self-verification loop | [📄](https://arxiv.org/abs/2502.15412) |
 | [EvoPresent: Self-Improvement Aesthetic Agents for Academic Presentations](https://arxiv.org/abs/2510.05571) | ICLR 2026 | 2025 | Agentic · multi-task RL aesthetic model (PresAesth) | [📄](https://arxiv.org/abs/2510.05571) [💻](https://github.com/eric-ai-lab/EvoPresent) |
 | [PASS: Presentation Automation for Slide Generation and Speech](https://arxiv.org/abs/2501.06497) | arXiv | 2025 | LLM pipeline · slides + AI voiceover | [📄](https://arxiv.org/abs/2501.06497) |
+| [DeepPresenter: Environment-Grounded Reflection for Agentic Presentation Generation](https://arxiv.org/abs/2602.22839) | arXiv | 2026 | Dual-agent (Researcher + Presenter) · environment-grounded reflection on rendered slides; SOTA with reduced cost | [📄](https://arxiv.org/abs/2602.22839) [💻](https://github.com/icip-cas/PPTAgent) |
+| [Design First, Code Later: Aesthetically Pleasing Template-Free Slides Generation (DeepSlides)](https://arxiv.org/abs/2605.26451) | arXiv | 2026 | Hierarchical decoupled design-then-code workflow; SlideQwens models (multi-agent RL); SlideDesign dataset | [📄](https://arxiv.org/abs/2605.26451) |
 
 ### Document → Slides
 
@@ -55,6 +57,8 @@
 | [SlideBot: A Multi-Agent Framework for Generating Informative, Reliable, Multi-Modal Presentations](https://arxiv.org/abs/2511.09804) | EAAI 2026 | 2025 | Multi-agent · retrieval + structured planning + code-gen; grounding to reduce hallucination | [📄](https://arxiv.org/abs/2511.09804) |
 | [SlideTailor: Personalized Presentation Slide Generation for Scientific Papers](https://arxiv.org/abs/2512.20292) | AAAI 2026 | 2025 | Agentic · preference-conditioned, progressively generated editable slides; chain-of-speech | [📄](https://arxiv.org/abs/2512.20292) |
 | [Narrative-Driven Paper-to-Slide Generation via ArcDeck](https://arxiv.org/abs/2604.11969) | arXiv | 2026 | Multi-agent · discourse-tree structure modeling for narrative coherence; ArcBench | [📄](https://arxiv.org/abs/2604.11969) |
+| [Paper2Video: Automatic Video Generation from Scientific Papers](https://arxiv.org/abs/2510.05096) | arXiv | 2025 | Multi-agent PaperTalker · slides + subtitles + speech + talking-head rendering; Paper2Video benchmark (101 pairs) | [📄](https://arxiv.org/abs/2510.05096) [💻](https://github.com/showlab/Paper2Video) [🌐](https://showlab.github.io/Paper2Video/) |
+| [SynLecSlideGen: AI-Generated Lecture Slides for Improving Slide Element Detection and Retrieval](https://arxiv.org/abs/2506.23605) | ECIR 2026 | 2025 | LLM + web-image pipeline → synthetic lecture slides for pretraining; RealSlide benchmark (1,050 annotated slides) | [📄](https://arxiv.org/abs/2506.23605) |
 
 ### Paper / Document → Poster
 
@@ -77,6 +81,8 @@
 |-------|-------|------|----------|-------|
 | [Talk to Your Slides: High-Efficiency Slide Editing via Language-Driven Structured Data Manipulation](https://arxiv.org/abs/2505.11604) | ACL 2026 | 2025 | LLM agent · edits underlying structured slide data (not pixels); TSBench (379 instructions) | [📄](https://arxiv.org/abs/2505.11604) [💻](https://github.com/KyuDan1/Talk-to-Your-Slides) |
 | [PPTArena: A Benchmark for Agentic PowerPoint Editing](https://arxiv.org/abs/2512.03042) | arXiv | 2025 | Benchmark · 100 decks / 2,125 slides; dual-VLM judge; PPTPilot agent | [📄](https://arxiv.org/abs/2512.03042) [💻](https://github.com/michaelofengend/PPTArena) |
+| [APEX: Academic Poster Editing Agentic Expert](https://arxiv.org/abs/2601.04794) | arXiv | 2026 | First agentic framework for interactive academic poster editing; multi-level PPTX API + review-adjust; APEX-Bench (514 instructions) | [📄](https://arxiv.org/abs/2601.04794) [💻](https://github.com/Breesiu/APEX) |
+| [DECKBench: Benchmarking Multi-Agent Frameworks for Academic Slide Generation and Editing](https://arxiv.org/abs/2602.13318) | arXiv | 2026 | Benchmark covering generation + multi-turn editing; assesses slide/deck fidelity, coherence, layout, instruction following | [📄](https://arxiv.org/abs/2602.13318) |
 
 ### Layout Generation
 
@@ -92,6 +98,7 @@
 | [UniLayDiff: A Unified Diffusion Transformer for Content-Aware Layout Generation](https://arxiv.org/abs/2512.08897) | arXiv | 2025 | Multi-modal diffusion transformer · single model for conditional/unconditional layout | [📄](https://arxiv.org/abs/2512.08897) |
 | [iPoster: Content-Aware Layout Generation for Interactive Poster Design via Graph-Enhanced Diffusion Models](https://arxiv.org/abs/2603.29469) | CHI EA 2026 | 2026 | Graph-enhanced diffusion · user-constrained interactive poster layout | [📄](https://arxiv.org/abs/2603.29469) |
 | [AeSlides: Incentivizing Aesthetic Layout in LLM-Based Slide Generation via Verifiable Rewards](https://arxiv.org/abs/2604.22840) | arXiv | 2026 | RL (GRPO) · verifiable aesthetic rewards (aspect ratio, whitespace, collisions, balance) | [📄](https://arxiv.org/abs/2604.22840) [💻](https://github.com/ympan0508/aeslides) |
+| [SlideCoder: Layout-aware RAG-enhanced Hierarchical Slide Generation from Design](https://arxiv.org/abs/2506.07964) | EMNLP 2025 | 2025 | Image → code · Color Gradient Segmentation + hierarchical RAG for design-to-PPTX code; SlideMaster 7B; Slide2Code benchmark | [📄](https://arxiv.org/abs/2506.07964) [💻](https://github.com/vinsontang1/SlideCoder) |
 
 ### Evaluation
 
@@ -105,6 +112,7 @@
 | [VLM-SlideEval: Evaluating VLMs on Structured Comprehension and Perturbation Sensitivity in PPT](https://arxiv.org/abs/2510.22045) | arXiv | 2025 | Element extraction · perturbation robustness · narrative-order comprehension | [📄](https://arxiv.org/abs/2510.22045) |
 | [SlidesGen-Bench: Evaluating Slides Generation via Computational and Quantitative Metrics](https://arxiv.org/abs/2601.09487) | arXiv | 2026 | Content · Aesthetics · Editability (computational metrics + Slides-Align preferences) | [📄](https://arxiv.org/abs/2601.09487) [💻](https://github.com/YunqiaoYang/SlidesGen-Bench) |
 | [PresentBench: A Fine-Grained Rubric-Based Benchmark for Slide Generation](https://arxiv.org/abs/2603.07244) | arXiv | 2026 | Instance-specific binary checklists (238 instances, avg. 54.1 items) | [📄](https://arxiv.org/abs/2603.07244) [💻](https://github.com/PresentBench/PresentBench) |
+| [PPTBench: Towards Holistic Evaluation of Large Language Models for PowerPoint Layout and Design Understanding](https://arxiv.org/abs/2512.02624) | arXiv | 2025 | 958 PPTX files · 4,439 samples across Detection / Understanding / Modification / Generation; exposes MLLM layout-reasoning gap | [📄](https://arxiv.org/abs/2512.02624) |
 
 ---
 
@@ -121,6 +129,9 @@
 | [P2PInstruct / P2PEval](https://github.com/multimodal-art-projection/P2P) | 2025 | 30k+ instructions · 121 paper-poster eval pairs | Paper-to-poster generation & fine-grained eval | [💻](https://github.com/multimodal-art-projection/P2P) [📄](https://arxiv.org/abs/2505.17104) |
 | [PosterSum](https://huggingface.co/datasets/rohitsaxena/PosterSum) | 2025 | 16,305 poster images + abstract summaries | Scientific poster understanding / summarization | [🗂️](https://huggingface.co/datasets/rohitsaxena/PosterSum) [💻](https://github.com/saxenarohit/postersum) [📄](https://arxiv.org/abs/2502.17540) |
 | [TSBench](https://github.com/KyuDan1/Talk-to-Your-Slides) | 2025 | 379 human-verified edit instructions | Instruction-based slide editing | [💻](https://github.com/KyuDan1/Talk-to-Your-Slides) [📄](https://arxiv.org/abs/2505.11604) |
+| [Slide2Code](https://github.com/vinsontang1/SlideCoder) | 2025 | Difficulty-tiered samples (Slide Complexity Metric) | Slide design image → PPTX code generation | [💻](https://github.com/vinsontang1/SlideCoder) [📄](https://arxiv.org/abs/2506.07964) |
+| [Paper2Video Benchmark](https://github.com/showlab/Paper2Video) | 2025 | 101 paper–video pairs (avg. 16 slides / 6 min 15 s) | Paper → narrated presentation video | [💻](https://github.com/showlab/Paper2Video) [📄](https://arxiv.org/abs/2510.05096) |
+| [APEX-Bench](https://github.com/Breesiu/APEX) | 2026 | 514 academic poster editing instructions (multi-dimensional taxonomy) | Instruction-based poster editing | [💻](https://github.com/Breesiu/APEX) [📄](https://arxiv.org/abs/2601.04794) |
 
 ---
 
