@@ -35,6 +35,10 @@ New to the field? Start with the [**taxonomy guide**](docs/taxonomy.md) for a ma
 
 ## Papers
 
+<img src="assets/paper-matrix.svg" alt="Matrix of representative papers by backbone model and generation method; chip color encodes output type" width="100%">
+
+> Where the field clusters: representative papers placed by **backbone model** (rows) × **generation method** (columns) — see the [taxonomy guide](docs/taxonomy.md) for the full read.
+
 ### Prompt / Topic → Slides
 
 > The model receives a short text prompt or topic and generates a complete slide deck.
