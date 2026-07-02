@@ -23,15 +23,15 @@ We welcome additions that are clearly related to **automatic presentation, slide
 
 ## Formatting
 
-- Place the entry in the **most appropriate section**, in a sensible order (papers are roughly chronological/topical; tools are by relevance).
-- Use the established format for the section. For papers:
+- Place the entry in the **most appropriate section**, in a sensible order (papers are roughly chronological/topical; tools are by relevance). The [taxonomy guide](docs/taxonomy.md) explains what each section covers.
+- Use the established **table format** for the section. For papers:
 
   ```markdown
-  - **Title** (Venue Year) — One-sentence description of the contribution. [📄](paper-url) [💻](code-url) [🗂️](dataset-url)
+  | [Title](paper-url) | Venue | Year | One-line paradigm/contribution | [📄](paper-url) [💻](code-url) [🗂️](dataset-url) |
   ```
 
 - Descriptions should be **concise, neutral, and informative** — no marketing language.
-- Use `https` links and make sure they resolve.
+- Use `https` links and make sure they resolve. CI runs a [link checker](.github/workflows/link-check.yml) and a [format checker](scripts/check_list.py) on every PR; you can run the latter locally with `python3 scripts/check_list.py`.
 - Update the [Contents](README.md#contents) table if you add a new section.
 
 ## Submitting

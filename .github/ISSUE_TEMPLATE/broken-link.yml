@@ -1,0 +1,34 @@
+name: "\U0001F517 Report a broken or outdated entry"
+description: A link is dead, a project is abandoned, or information is out of date
+title: "[Fix] <entry name>"
+labels: ["broken-link"]
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Entry
+      description: The name of the entry as it appears in the README.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: problem
+    attributes:
+      label: Problem
+      options:
+        - Link is dead (404 / domain gone)
+        - Link redirects somewhere unrelated
+        - Project is discontinued or unmaintained
+        - Information is outdated (venue, description, features)
+        - Duplicate of another entry
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What's wrong, and (if known) the corrected link or information.
+    validations:
+      required: true

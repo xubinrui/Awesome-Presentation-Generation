@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Not sure if a resource fits?
+    url: https://github.com/xubinrui/Awesome-Presentation-Generation/blob/main/CONTRIBUTING.md
+    about: Read the contribution guidelines for the quality bar and formatting rules.

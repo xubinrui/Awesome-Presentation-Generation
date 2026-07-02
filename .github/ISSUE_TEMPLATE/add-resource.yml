@@ -1,0 +1,59 @@
+name: "\U0001F4DA Suggest a resource"
+description: Suggest a paper, dataset, project, or product for the list
+title: "[Add] <resource name>"
+labels: ["suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a resource! Please check the [README](../blob/main/README.md) first to make sure it isn't already listed, and read the [contribution guidelines](../blob/main/CONTRIBUTING.md).
+
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+      placeholder: e.g. PPTAgent
+    validations:
+      required: true
+
+  - type: input
+    id: link
+    attributes:
+      label: Primary link
+      description: Paper (arXiv/venue), repository, or product page.
+      placeholder: https://arxiv.org/abs/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - "Papers: Prompt / Topic → Slides"
+        - "Papers: Document → Slides"
+        - "Papers: Paper / Document → Poster"
+        - "Papers: Slide Editing & Agentic Manipulation"
+        - "Papers: Layout Generation"
+        - "Papers: Evaluation"
+        - "Datasets & Benchmarks"
+        - "Open-Source Projects"
+        - "Commercial Products"
+        - "Related Awesome Lists"
+        - "Other / not sure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Short description
+      description: One or two neutral sentences — what it does and why it belongs on the list.
+    validations:
+      required: true
+
+  - type: input
+    id: extra-links
+    attributes:
+      label: Extra links (optional)
+      description: "Code, dataset, or project page, e.g.: code: https://github.com/... · data: https://huggingface.co/..."
