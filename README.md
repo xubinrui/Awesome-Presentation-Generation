@@ -1,6 +1,14 @@
+<div align="center">
+
+<img src="assets/banner.svg" alt="Awesome Presentation Generation" width="100%">
+
 # Awesome Presentation Generation [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 > A curated list of resources for **automatic presentation, slide, and poster generation** — organized by generation paradigm.
+
+New to the field? Start with the [**taxonomy guide**](docs/taxonomy.md) for a map of inputs, methods, and outputs.
+
+</div>
 
 ## Contents
 
@@ -266,7 +274,9 @@
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). PRs for new papers, tools, or fixes are welcome.
+See [CONTRIBUTING.md](CONTRIBUTING.md). PRs for new papers, tools, or fixes are welcome — the [taxonomy guide](docs/taxonomy.md) explains which section an entry belongs in. Please also read the [code of conduct](CODE_OF_CONDUCT.md).
+
+Not sure if something fits, or found a dead link? Open an issue with one of the [issue templates](https://github.com/xubinrui/Awesome-Presentation-Generation/issues/new/choose).
 
 ## License
 
