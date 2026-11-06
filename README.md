@@ -105,6 +105,7 @@ New to the field? Start with the [**taxonomy guide**](docs/taxonomy.md) for a ma
 | [PPTArena: A Benchmark for Agentic PowerPoint Editing](https://arxiv.org/abs/2512.03042) | arXiv | 2025 | Benchmark · 100 decks / 2,125 slides; dual-VLM judge; PPTPilot agent | [📄](https://arxiv.org/abs/2512.03042) [💻](https://github.com/michaelofengend/PPTArena) |
 | [APEX: Academic Poster Editing Agentic Expert](https://arxiv.org/abs/2601.04794) | arXiv | 2026 | First agentic framework for interactive academic poster editing; multi-level PPTX API + review-adjust; APEX-Bench (514 instructions) | [📄](https://arxiv.org/abs/2601.04794) [💻](https://github.com/Breesiu/APEX) |
 | [DECKBench: Benchmarking Multi-Agent Frameworks for Academic Slide Generation and Editing](https://arxiv.org/abs/2602.13318) | arXiv | 2026 | Benchmark covering generation + multi-turn editing; assesses slide/deck fidelity, coherence, layout, instruction following | [📄](https://arxiv.org/abs/2602.13318) |
+| [InfoEdit: Probing Global Layout Reasoning in Infographic Editing](https://arxiv.org/abs/2609.33286) | EMNLP 2026 | 2026 | Benchmark · 1,000 infographics (800 HTML, 200 PowerPoint), 4,000 instructions over 4 reflow tasks; pixel-level vs. code-level editing; MLLM judge | [📄](https://arxiv.org/abs/2609.33286) [💻](https://github.com/InfoEdit/InfoEdit) |
 
 ### Layout Generation
 
