@@ -231,6 +231,7 @@ New to the field? Start with the [**taxonomy guide**](docs/taxonomy.md) for a ma
 | [Prezi AI](https://prezi.com) | Prompt · doc | Prezi · PDF | Major 2025–2026 AI upgrade: full deck gen, editable outline, AI text editing, custom image gen |
 | [Slidesgo AI](https://slidesgo.com/ai/presentation-maker) | Prompt | Google Slides · PPTX | AI maker from popular template platform; PDF-to-PPT converter; quiz & lesson plan generators |
 | [SlideSpeak](https://slidespeak.co) | PPT · PDF · text | PPTX · PDF | Chat with presentations; summarize & generate decks from document summaries |
+| [Inplain](https://inplain.app) | AI chat · files · prompt | PPTX · PDF · web | Turns ChatGPT, Claude, Codex, or Cursor output into editable decks, documents, spreadsheets, and dashboards via web, MCP, or CLI |
 
 ### Plug-in / Add-on Tools
 
